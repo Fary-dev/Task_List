@@ -1,0 +1,141 @@
+// Colors what we need
+$dark:hsl(217, 19%, 27%);
+$darker: #1f2937;
+$darkest: #111827;
+$gray: #a3a3a3;
+$light: #eee;
+$pink: #ec4899;
+$purple: #8b5cf6;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Fira sans', sans-serif;
+}
+
+input {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: $dark;
+    color: #fff;
+    #header {
+        padding: 2rem 1rem;
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        #new-task-from {
+            display: flex;
+            flex-wrap: wrap;
+            #new-task-input {
+                flex: 1 1 0%;
+                width: 90%;
+                background-color: $darker;
+                padding: 1rem;
+                border-radius: 1rem;
+                margin-right: 1rem;
+                color: $light;
+                font-size: 1.25rem;
+            }
+            #new-task-submit {
+                color: transparent;
+                font-size: 1.25rem;
+                font-weight: 700;
+                padding: 0 10px;
+                border-radius: 1rem;
+                border: 3px solid $purple;
+                background-image: linear-gradient(to right, $pink, $purple);
+                background-clip: border-box;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                cursor: pointer;
+                transition: 0.4s;
+                box-shadow: 0 0 10px 0 $purple;
+                &:hover {
+                    opacity: 0.7;
+                    color: white;
+                }
+                &:active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    main {
+        flex: 1 1 0%;
+        padding: 2rem 1rem;
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        .task-list {
+            padding: 1rem;
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 300;
+                color: $gray;
+                margin-bottom: 1rem;
+            }
+            #tasks {
+                .task {
+                    display: flex;
+                    justify-content: space-between;
+                    background-color: $darkest;
+                    padding: 1rem;
+                    border-radius: 1rem;
+                    margin-bottom: 1rem;
+                    .actions {
+                        display: flex;
+                        margin: 0 -0.5rem;
+                        i {
+                            cursor: pointer;
+                            margin: 0 1rem;
+                            // padding-right: 50px;
+                            transition: 0.2s;
+                            // font-size: 1rem;
+                            &:hover {
+                                opacity: 0.6;
+                            }
+                            &:active {
+                                opacity: 1;
+                            }
+                            &.edit {
+                                color: #fff;
+                                font-size: 1rem;
+                            }
+                            &.delete {
+                                color: #f00;
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                    .content {
+                        flex: 1 1 0%;
+                    }
+                }
+                .task .content .text {
+                    color: $light;
+                    font-size: 1.25rem;
+                    width: 100%;
+                    display: block;
+                    transition: 0.4s;
+                    &:not(:read-only) {
+                        color: $gray;
+                    }
+                }
+            }
+        }
+    }
+}
